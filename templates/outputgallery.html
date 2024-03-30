@@ -1,0 +1,28 @@
+<!DOCTYPE html5>    
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Uploaded Image</h1>
+        <div id="image-container" class="image-container">
+            <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+        </div>
+        <!-- <form action="{{ url_for('gallery', filename=filename) }}" method="post">
+            <input type="submit" value="Digitalize">
+        </form> -->
+        <form action="{{ url_for('digitalize') }}" method="post">
+            <input type="hidden" name="filename" value="{{ filename }}">
+            <input type="submit" value="Digitalize">
+        </form>
+        <form action="{{ url_for('show_text', filename=filename ) }}" method="post">
+            <input type="hidden" name="filename" value="{{ filename }}">
+            <input type="submit" value="Show Text">
+        </form>
+    </div>
+</body>
+</html>
