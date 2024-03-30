@@ -12,9 +12,6 @@
         <div id="image-container" class="image-container">
             <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
         </div>
-        <!-- <form action="{{ url_for('gallery', filename=filename) }}" method="post">
-            <input type="submit" value="Digitalize">
-        </form> -->
         <form action="{{ url_for('digitalize') }}" method="post">
             <input type="hidden" name="filename" value="{{ filename }}">
             <input type="submit" value="Digitalize">
